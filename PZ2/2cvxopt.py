@@ -1,5 +1,6 @@
 import time
 import cvxopt.modeling
+import matplotlib.pyplot as plt
 
 start = time.time()
 x = cvxopt.modeling.variable(2, 'x')
@@ -16,3 +17,16 @@ print(x.value)
 stop = time.time()
 print("Время :")
 print(stop - start)
+
+plt.title('ПЗ 2')
+plt.xlabel('Значение X1')
+plt.ylabel('Значение X2')
+plt.xlim(0, 150)
+plt.ylim(0, 300)
+plt.axline((0, 2000), slope=-18)
+plt.axline((0, 0), slope=3)
+plt.fill_between((0, 2000/21, 111.111), (0, 2000/7, 0))
+plt.text(4, 25, 'x2=3*x1', rotation=50)
+plt.text(97, 180, 'x2<=2000-18*x1', rotation=-80)
+plt.grid()
+plt.show()
